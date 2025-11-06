@@ -13,6 +13,8 @@ Seu objetivo é:
 Boa sorte e bons commits! 🚀
 """
 
+import re
+
 def mostrar_mensagem_inicial():
     """
     Exibe uma mensagem de boas-vindas ao desafio.
@@ -44,7 +46,8 @@ def verificar_tag_valida(tag):
     Verifica se uma tag está no formato 'vX.Y' (ex: v1.0, v2.1).
     Retorna True se o formato for válido, caso contrário False.
     """
-    pass
+    padrao = r"^v\d+\.\d+$"
+    return bool(re.match(padrao, tag))
 
 
 def gerar_relatorio_final(funcoes_concluidas):
@@ -62,3 +65,5 @@ def gerar_relatorio_final(funcoes_concluidas):
 print(mostrar_mensagem_inicial())
 print(listar_comandos_git_basicos())
 print(criar_mensagem_commit("mostrar_mensagem_inicial"))
+print(verificar_tag_valida("v1.0"))
+print(verificar_tag_valida("1.0"))
